@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ArchDemo</string>
+    <string name="default_notification_channel_id">notification_test_channel</string>
 </resources>
