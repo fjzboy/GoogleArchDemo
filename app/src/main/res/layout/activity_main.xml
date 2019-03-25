@@ -6,7 +6,7 @@
     <data>
         <variable
             name="newsVM"
-            type="com.demo.androidx.viewmodel.NewsVM" />
+            type="com.fjz.demo.androidx.viewmodel.NewsVM" />
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout

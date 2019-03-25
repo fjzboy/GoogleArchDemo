@@ -3,7 +3,7 @@
     <data>
         <variable
             name="news"
-            type="com.demo.androidx.db.entity.News" />
+            type="com.fjz.demo.androidx.db.entity.News" />
     </data>
 
     <LinearLayout

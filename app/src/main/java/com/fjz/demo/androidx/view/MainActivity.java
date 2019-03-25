@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fjz.demo.androidx.R;
-import com.fjz.demo.androidx.db.entity.News;
 import com.fjz.demo.androidx.databinding.ActivityMainBinding;
+import com.fjz.demo.androidx.db.entity.News;
 import com.fjz.demo.androidx.viewmodel.NewsVM;
 import com.orhanobut.logger.Logger;
 
