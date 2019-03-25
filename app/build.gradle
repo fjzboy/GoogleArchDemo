@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    signingConfigs {
+        release {
+            keyAlias 'androidxdemo'
+            keyPassword '12347890'
+            storeFile file('../keystore/androidxdemo.jks')
+            storePassword '12347890'
+        }
+    }
+
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.fjz.demo.androidx"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+    def work_version = '1.0.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha02'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
+
+    // (Java only)
+    implementation "android.arch.work:work-runtime:$work_version"
+
+    // optional - RxJava2 support
+    implementation "android.arch.work:work-rxjava2:$work_version"
+
+    // optional - Test helpers
+    androidTestImplementation "android.arch.work:work-testing:$work_version"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    // Because RxAndroid releases are few and far between, it is recommended you also
+
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+
+    // (see https://github.com/ReactiveX/RxJava/releases for latest 2.x.x version)
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.6'
+    implementation 'com.orhanobut:logger:2.2.0'
+    def lifecycle_version = "2.0.0"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    def nav_version = "2.0.0-rc02"
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+
+    // For Kotlin use navigation-fragment-ktx
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    // For Kotlin use navigation-ui-ktx
+    def paging_version = "2.1.0"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    // For Kotlin use paging-runtime-ktx
+
+    // alternatively - without Android dependencies for testing
+    testImplementation "androidx.paging:paging-common:$paging_version"
+
+    // For Kotlin use paging-common-ktx
+
+    // optional - RxJava support
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+
+    def room_version = "2.0.0"
+
+    testImplementation "androidx.room:room-testing:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+
+}
+
+apply plugin: 'com.google.gms.google-services'
